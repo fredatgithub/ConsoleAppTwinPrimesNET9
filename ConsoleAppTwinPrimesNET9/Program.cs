@@ -2,7 +2,7 @@
 
 Action<string> print = Console.WriteLine;
 
-int nombre_max = 1_000_000;
+int nombre_max = 1_000_000_000;
 print($"Calculating twin primes up to {nombre_max:N0}");
 
 Stopwatch chrono = Stopwatch.StartNew();
@@ -114,7 +114,7 @@ static void SaveTwinPrimesToFile(List<int> twinPrimes, string filePath)
   }
 }
 
-void SaveTripletPrimesToFile(List<int> triplets, string filePath)
+static void SaveTripletPrimesToFile(List<int> triplets, string filePath)
 {
   using StreamWriter writer = new StreamWriter(filePath);
   for (int i = 0; i < triplets.Count; i += 3)
@@ -208,4 +208,79 @@ static List<int> ListAllTriplets(int nombre_max)
   }
 
   return triplets;
+}
+
+static int CalculerQuadruplets(int nombre_max)
+{
+  if (nombre_max < 13)
+    return 0;
+
+  // Crible d'Ératosthène
+  bool[] estPremier = new bool[nombre_max + 1];
+
+  for (int i = 2; i <= nombre_max; i++)
+    estPremier[i] = true;
+
+  for (int i = 2; i <= nombre_max / i; i++)
+  {
+    if (estPremier[i])
+    {
+      for (int j = i * i; j <= nombre_max; j += i)
+        estPremier[j] = false;
+    }
+  }
+
+  // Recherche des quadruplets :
+  // (p, p + 2, p + 6, p + 8)
+  int nombreQuadruplets = 0;
+
+  for (int p = 2; p <= nombre_max - 8; p++)
+  {
+    if (estPremier[p] &&
+        estPremier[p + 2] &&
+        estPremier[p + 6] &&
+        estPremier[p + 8])
+    {
+      Console.WriteLine($"({p}, {p + 2}, {p + 6}, {p + 8})");
+      nombreQuadruplets++;
+    }
+  }
+
+  return nombreQuadruplets;
+}
+
+static List<int> ListAllQuadruplets(int nombre_max)
+{
+  if (nombre_max < 13)
+    return new List<int>();
+  // Crible d'Ératosthène
+  bool[] estPremier = new bool[nombre_max + 1];
+  for (int i = 2; i <= nombre_max; i++)
+    estPremier[i] = true;
+  for (int i = 2; i <= nombre_max / i; i++)
+  {
+    if (estPremier[i])
+    {
+      for (int j = i * i; j <= nombre_max; j += i)
+        estPremier[j] = false;
+    }
+  }
+  // Recherche des quadruplets :
+  // (p, p + 2, p + 6, p + 8)
+  List<int> quadruplets = new();
+  for (int p = 2; p <= nombre_max - 8; p++)
+  {
+    if (estPremier[p] &&
+        estPremier[p + 2] &&
+        estPremier[p + 6] &&
+        estPremier[p + 8])
+    {
+      quadruplets.Add(p);
+      quadruplets.Add(p + 2);
+      quadruplets.Add(p + 6);
+      quadruplets.Add(p + 8);
+    }
+  }
+ 
+  return quadruplets;
 }
