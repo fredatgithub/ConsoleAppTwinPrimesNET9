@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchForGreatestGapFromFil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeLibrary", "PrimeLibrary\PrimeLibrary.csproj", "{361FAB51-D12E-40F0-90A5-2E5E7926BAA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeLibrary.Tests", "PrimeLibrary.Tests\PrimeLibrary.Tests.csproj", "{34032DFA-3156-4D17-B395-6276DDF8B75E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{361FAB51-D12E-40F0-90A5-2E5E7926BAA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{361FAB51-D12E-40F0-90A5-2E5E7926BAA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{361FAB51-D12E-40F0-90A5-2E5E7926BAA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34032DFA-3156-4D17-B395-6276DDF8B75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34032DFA-3156-4D17-B395-6276DDF8B75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34032DFA-3156-4D17-B395-6276DDF8B75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34032DFA-3156-4D17-B395-6276DDF8B75E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
