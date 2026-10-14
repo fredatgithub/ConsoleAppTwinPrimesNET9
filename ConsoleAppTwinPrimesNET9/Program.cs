@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using PrimeLibrary;
 
 Action<string> print = Console.WriteLine;
 
@@ -7,7 +8,7 @@ print($"Calculating twin primes up to {nombre_max:N0}");
 
 Stopwatch chrono = Stopwatch.StartNew();
 var twinPrimes = new List<int>();
-twinPrimes = ListAllTwinPrimes(nombre_max);
+twinPrimes = Helper.ListAllTwinPrimes(nombre_max);
 chrono.Stop();
 int nombrePaires = CalculerPremiersJumeaux(nombre_max);
 
@@ -71,38 +72,6 @@ static int CalculerPremiersJumeaux(int nombre_max)
   }
 
   return nombrePaires;
-}
-
-static List<int> ListAllTwinPrimes(int nombre_max)
-{
-  if (nombre_max < 5)
-    return new List<int>();
-  // Crible d'Ératosthène
-  bool[] estPremier = new bool[nombre_max + 1];
-  for (int i = 2; i <= nombre_max; i++)
-    estPremier[i] = true;
-  for (int i = 2; i <= nombre_max / i; i++)
-  {
-    if (estPremier[i])
-    {
-      for (int j = i * i; j <= nombre_max; j += i)
-      {
-        estPremier[j] = false;
-      }
-    }
-  }
-  // Recherche des nombres premiers jumeaux
-  List<int> twinPrimes = new List<int>();
-  for (int i = 3; i <= nombre_max - 2; i++)
-  {
-    if (estPremier[i] && estPremier[i + 2])
-    {
-      twinPrimes.Add(i);
-      twinPrimes.Add(i + 2);
-    }
-  }
-
-  return twinPrimes;
 }
 
 static void SaveTwinPrimesToFile(List<int> twinPrimes, string filePath)
