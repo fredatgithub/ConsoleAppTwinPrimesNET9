@@ -5,7 +5,7 @@ print("Search for the greatest prime gap");
 // Create a dictionary to store the prime gaps the dictionary has the key of the primeand the value of number of gaps between the prime and the next prime
 var dicoPrimeGap = new Dictionary<int, int>();
 dicoPrimeGap.Add(2, 1); // 2 is the first prime and the gap to the next prime (3) is 1
-dicoPrimeGap.Add(3, 1);
+dicoPrimeGap.Add(3, 2);
 int maxNumber = 100_000_000;
 // result
 // prime number; max gap

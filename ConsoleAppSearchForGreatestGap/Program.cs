@@ -6,6 +6,7 @@ int maxNumber = 100_000_000;
 // results:
 // prime number - prime number + 1; max gap
 // 4 652 353 - 4 652 507 = gap of 154
+// 47 326 693 - 47 326 913 = gap of 220
 var allPrimes = new List<int>();
 allPrimes.AddRange(new[] { 2, 3, 5, 7 });
 var dicoPrimeGap = new Dictionary<int, int>();
