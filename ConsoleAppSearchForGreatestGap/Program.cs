@@ -2,8 +2,10 @@
 
 Action<string> print = Console.WriteLine;
 print("Search for greatest gap between consecutive primes");
-int maxNumber = 10_000_000;
-
+int maxNumber = 100_000_000;
+// results:
+// prime number - prime number + 1; max gap
+// 4 652 353 - 4 652 507 = gap of 154
 var allPrimes = new List<int>();
 allPrimes.AddRange(new[] { 2, 3, 5, 7 });
 var dicoPrimeGap = new Dictionary<int, int>();
@@ -13,7 +15,8 @@ for (int i = 3; i < maxNumber; i += 2)
 	if (Helper.IsPrime(i))
 	{
     allPrimes.Add(i);
-	}
+    print($"Found prime: {i}");
+  }
 }
 
 int greatestGap = 0;
